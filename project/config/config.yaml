@@ -1,0 +1,79 @@
+harvester_node:
+  ros__parameters:
+    camera1: 
+      custom_cam_name: "baumer_vcxg_2_51C" # used for topics and node name
+
+      enable: true
+      enable_window: false
+      max_gain_trackbar_value: 48
+
+      auto_enhancement: false
+
+      identification_tags:
+        display_name: ""  # camera name
+        vendor: "Baumer" # producer like baumer
+        serial_number: "700012311769"
+      
+      settings:
+        on_device_crop_factor: 1.0
+
+        acquisition:
+          AcquisitionMode: "Continuous" # [Continuous, MultiFrame (given amount of shots after start [not implemented]), SingleFrame (one shot after start)]
+          AcquisitionFrameRateEnable: false # Enable frame rate
+          AcquisitionFrameRate: 100 # Hz
+
+        PixelFormat: "RGB8" # color RGB8 and so on
+        ExposureAuto: "Continuous" # Auto mode for exposure time [Continuous, Off, Once]
+        # For Baumer Model Min = 15 µsec Max = 60 sec
+        ExposureAutoMaxValue: 20000  # Values in µs and from chapter ExposureTime (currently 15 images per second)
+        ExposureAutoMinValue: 15     
+
+
+        GainAuto: "Continuous"  # Auto ISO-adjustment [Continuous, Off, Once]
+        # For Baumer Model 0-48
+        GainAutoMaxValue: 48 
+        GainAutoMinValue: 0
+        
+        BrightnessAutoPriority: "ExposureAuto" # What to increase first to match desired brightness level [GainAuto -> increasing first ISO then Exposure, ExposureAuto]
+        BrightnessAutoNominalValue: -1.0 # Negative means default value (the desired brightness value of image, range see camera specification like 5-95 for Baumer)
+        BalanceWhiteAuto: "Continuous" # continous white balancing
+
+    camera2: 
+      custom_cam_name: "flir_1130" # used for topics
+
+      enable: true
+      enable_window: false
+      max_gain_trackbar_value: -1
+
+      auto_enhancement: false
+
+      identification_tags:
+        display_name: "Teledyne FLIR"  
+        vendor: "Teledyne FLIR"
+        serial_number: "M0002817"
+      
+      settings:
+        on_device_crop_factor: -1.0
+        
+        acquisition:
+          AcquisitionMode: "Continuous" 
+          AcquisitionFrameRateEnable: false 
+          AcquisitionFrameRate: 15 # Hz
+
+        PixelFormat: "" 
+        ExposureAuto: "" 
+        ExposureAutoMaxValue: -1     
+        ExposureAutoMinValue: -1     
+
+
+        GainAuto: ""  
+        GainAutoMaxValue: -1
+        GainAutoMinValue: -1
+        
+        BrightnessAutoPriority: "" 
+        BrightnessAutoNominalValue: -1.0 
+        BalanceWhiteAuto: ""
+
+
+        
+    

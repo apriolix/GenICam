@@ -1,0 +1,5 @@
+broadcast_key: "genicam"
+broadcast_port: 49152
+client_port_range: [49152,65535]
+server_heartbeat: 2.5 #sec
+server_queue_size: 5

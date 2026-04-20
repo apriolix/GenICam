@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  opencv_cuda:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: opencv_cuda

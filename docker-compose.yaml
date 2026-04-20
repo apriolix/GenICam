@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+   genicam_ros:
+    image: genicam_ros
+    container_name: genicam_ros_container
+    network_mode: host
+    gpus: all
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix:rw # GUI  
+    - ${XAUTHORITY}:/tmp/.docker.xauth # GUI
+
+    - ./project:/GeniCamROS
+    privileged: false
+    environment:
+      - DISPLAY=${DISPLAY} # GUI
+      - QT_X11_NO_MITSHM=1 # GUI
+      - XAUTHORITY=/tmp/.docker.xauth # GUI
+
+    tty: true # Terminal
